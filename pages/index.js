@@ -7,8 +7,14 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { colors } from "@/utils/theme";
+import router from "next/router";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export default function FixedContainer() {
+  const theme = useTheme();
+  const isDownLg = useMediaQuery(theme.breakpoints.down("lg"));
+  const isDownMd = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <>
       <CssBaseline />
@@ -56,6 +62,24 @@ export default function FixedContainer() {
               />
             </Box> */}
             </Box>
+          </Box>
+          <Box
+            sx={{
+              position: "absolute",
+              right: 1,
+              bottom: 1,
+            }}>
+            <Avatar
+              alt="Chonprakun Panetgul"
+              src="https://blush.design/api/download?shareUri=CEuDqr2W3&c=Hair_0%7E030067-0.4%7E870cf7_Skin_0%7E7b3d16-0.4%7Effcba7_Top_0%7Eff7475-0.4%7Eff0c0c&w=800&h=800&fm=png"
+              sx={{
+                ...(isDownLg
+                  ? isDownMd
+                    ? { width: 150, height: 150 }
+                    : { width: 400, height: 400 }
+                  : { width: 600, height: 600 }),
+              }}
+            />
           </Box>
         </Box>
       </Container>

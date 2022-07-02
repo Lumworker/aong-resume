@@ -9,7 +9,7 @@ export default function resume() {
       <Topbar />
       <CssBaseline />
       <Container fixed>
-        <Box sx={{ my: 10 }}>resume</Box>
+        <Box sx={{ my: 10 }}>resume ja</Box>
       </Container>
     </>
   );

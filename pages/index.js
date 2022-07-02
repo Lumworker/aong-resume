@@ -28,7 +28,7 @@ export default function FixedContainer() {
             sx={{
               position: "fixed",
               // top: "45%",
-              top: "40%",
+              top: "20em",
               // left: "50%",
               // transform: "translate(-50%, -50%)",
             }}>
@@ -75,7 +75,7 @@ export default function FixedContainer() {
               sx={{
                 ...(isDownLg
                   ? isDownMd
-                    ? { width: 150, height: 150 }
+                    ? { width: 200, height: 200 }
                     : { width: 400, height: 400 }
                   : { width: 600, height: 600 }),
               }}

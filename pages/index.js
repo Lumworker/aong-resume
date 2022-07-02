@@ -47,9 +47,22 @@ export default function FixedContainer() {
                   {/* หน้าแรก */}
                   Home
                 </Button>
-                <Button>{/* เกี่ยวกับ */}About</Button>
-                <Button>CV</Button>
-                <Button>
+                <Button
+                  onClick={() => {
+                    router.push("/Profile/about");
+                  }}>
+                  {/* เกี่ยวกับ */}About
+                </Button>
+                <Button
+                  onClick={() => {
+                    router.push("/Profile/cv");
+                  }}>
+                  CV
+                </Button>
+                <Button
+                  onClick={() => {
+                    router.push("/Profile/contract");
+                  }}>
                   {/* ติดต่อ */}
                   Contract
                 </Button>

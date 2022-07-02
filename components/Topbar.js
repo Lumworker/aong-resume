@@ -14,8 +14,15 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import PetsIcon from "@mui/icons-material/Pets";
+import router from "next/router";
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+const navItems = [
+  { name: "Home", href: "/Profile/resume" },
+  { name: "About", href: "/Profile/about" },
+  { name: "CV", href: "/Profile/cv" },
+  { name: "Contact", href: "/Profile/contract" },
+  { name: "Common", href: "../" },
+];
 
 function Topbar(props) {
   const { window } = props;
@@ -33,9 +40,14 @@ function Topbar(props) {
       <Divider />
       <List>
         {navItems.map(item => (
-          <ListItem key={item} disablePadding>
+          <ListItem
+            key={item.name}
+            disablePadding
+            onClick={() => {
+              router.push(item.href);
+            }}>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -46,6 +58,11 @@ function Topbar(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  const variants = {
+    hidden: { opacity: 0, x: -200, y: 0 },
+    enter: { opacity: 1, x: 0, y: 0 },
+    exit: { opacity: 0, x: 0, y: -100 },
+  };
   return (
     <Box sx={{ display: "flex" }}>
       <AppBar component="nav">
@@ -66,8 +83,13 @@ function Topbar(props) {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map(item => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
+              <Button
+                key={item.name}
+                sx={{ color: "#fff" }}
+                onClick={() => {
+                  router.push(item.href);
+                }}>
+                {item.name}
               </Button>
             ))}
           </Box>
